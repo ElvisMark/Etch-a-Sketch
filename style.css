@@ -2,7 +2,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 120vh;
+    height: 100vh;
     margin: 0;
     background-color: #d8dfdc;
 }
@@ -16,7 +16,10 @@ body {
 .square {
     height: 50px;
     width:  50px;
-    background-color: #3b7575;
-    border: 1px solid #101817;
+    background-color: #ab48c9;
+    border: 1px solid #000000;
     box-sizing: border-box;
+}
+.square:hover {
+    background-color: #073f3f;
 }
