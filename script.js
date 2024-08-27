@@ -8,3 +8,5 @@ function createGrid() {
         container.appendChild(square)
     }
 }
+
+window.onload = createGrid;
