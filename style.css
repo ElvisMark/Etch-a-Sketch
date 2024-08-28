@@ -1,28 +1,32 @@
 body {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #d8dfdc;
+    font-family: 'Times New Roman', Times, serif;
+}
+#button-container {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    background-color: #f3f3f3;
 }
 #prompt-btn {
-    margin: 20px;
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
 }
 #square-container {
     display: grid;
+    margin-top: 20px;
     width: 960px;
     height: 960px;
+    background-color: #ccc;
 }
 
 .square {
-    background-color: #b78be9;
     border: 1px solid #000000;
-    box-sizing: border-box;
-}
-.square:hover {
-    background-color: #073f3f;
+    transition: background-color 0.3s;
 }
