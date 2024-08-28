@@ -23,7 +23,7 @@ function createGrid(squaresOnGrid) {
 
     container.innerHTML= '';
 
-    const squareSize =960 / squaresOnGrid;
+    const squareSize = 960 / squaresOnGrid;
 
     container.style.gridTemplateColumns =`repeat(${squaresOnGrid}, ${squareSize}px)`;
     container.style.gridTemplateRows = `repeat(${squaresOnGrid}, ${squareSize}px)`
@@ -38,8 +38,7 @@ function createGrid(squaresOnGrid) {
         let color = null;
         let interaction = 0;
 
-
-
+        
         square.addEventListener('mouseover', function(){
             if (interaction === 0){
                 color = randomColor();
