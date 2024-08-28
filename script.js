@@ -1,10 +1,22 @@
 function randomColor() {
-    const hexLetters = '0123456789ABCDEF'
-    let color = '#'
-    for(let i = 0; i < 6; i++) {
-        color += hexLetters[Math.floor(Math.random() * 16)]
-    }
-    return color;
+    
+    return{
+        r: Math.floor(Math.random() * 256),
+        g: Math.floor(Math.random() * 256),
+        b: Math.floor(Math.random() * 256)
+    };
+}
+
+function darkerColor(color, factor) {
+    return{
+        r: Math.floor(color.r * factor),
+        g: Math.floor(color.g * factor),
+        b: Math.floor(color.b * factor)
+    };
+}
+
+function colorToString(color) {
+    return `rgb(${color.r}, ${color.g}, ${color.b})`;
 }
 
 function createGrid(squaresOnGrid) {
@@ -24,19 +36,29 @@ function createGrid(squaresOnGrid) {
         square.style.width = `${squareSize}px`
         square.style.height = `${squareSize}px`
 
-        square.style.backgroundColor = randomColor();
+        let color = null;
+        let interaction = 0;
+
 
 
         square.addEventListener('mouseover', function(){
-            square.style.backgroundColor = '#073f3f'
-        })
+            if (interaction === 0){
+                color = randomColor();
+                square.style.backgroundColor = colorToString(color)
+            } else if(interaction < 10){
+                color = darkerColor(color,0.8)
+                square.style.backgroundColor = colorToString(color);
+            }
+            
+            interaction++
+        });
 
         container.appendChild(square)
     }
 }
 
 function gridResize () {
-    let squaresOnGrid = parseInt(prompt('Enter the number of squares per side between 1 and 100:'),10);
+    let squaresOnGrid = parseInt(prompt('Enter the number of squares you want!!!!', 16),10);
 
     if(squaresOnGrid > 0 && squaresOnGrid <= 100) {
         createGrid(squaresOnGrid);
@@ -46,7 +68,7 @@ function gridResize () {
 }
 
 window.onload = createGrid;
-// createGrid(16);
+createGrid(16);
 
 const btn = document.querySelector('#prompt-btn')
 btn.addEventListener('click',gridResize)
