@@ -6,17 +6,20 @@ body {
     margin: 0;
     background-color: #d8dfdc;
 }
+#prompt-btn {
+    margin: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
 #square-container {
     display: grid;
-    grid-template-columns: repeat(16, 25px);
-    grid-template-rows: repeat(16, 25px);
-    gap: 10px;
+    width: 960px;
+    height: 960px;
 }
 
 .square {
-    height: 50px;
-    width:  50px;
-    background-color: #ab48c9;
+    background-color: #b78be9;
     border: 1px solid #000000;
     box-sizing: border-box;
 }
