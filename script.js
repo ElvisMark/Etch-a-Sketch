@@ -1,15 +1,15 @@
-function createGrid(squaresPerSide) {
+function createGrid(squaresOnGrid) {
     const container = document.querySelector('#square-container')
 
     container.innerHTML= '';
 
-    const squareSize =960 / squaresPerSide;
+    const squareSize =960 / squaresOnGrid;
 
-    container.style.gridTemplateColumns =`repeat(${squaresPerSide}, ${squareSize}px)`;
-    container.style.gridTemplateRows = `repeat(${squaresPerSide}, ${squareSize}px)`
+    container.style.gridTemplateColumns =`repeat(${squaresOnGrid}, ${squareSize}px)`;
+    container.style.gridTemplateRows = `repeat(${squaresOnGrid}, ${squareSize}px)`
 
 
-    for(let i = 0; i < squaresPerSide * squaresPerSide; i++){
+    for(let i = 0; i < squaresOnGrid * squaresOnGrid; i++){
         const square = document.createElement('div')
         square.className = 'square';
         square.style.width = `${squareSize}px`
@@ -25,16 +25,17 @@ function createGrid(squaresPerSide) {
 }
 
 function gridResize () {
-    let squaresPerSide = parseInt(prompt('Enter the number of squares per side between 1 and 100:'),10);
+    let squaresOnGrid = parseInt(prompt('Enter the number of squares per side between 1 and 100:'),10);
 
-    if(squaresPerSide > 0 && squaresPerSide < 100) {
-        createGrid(squaresPerSide);
+    if(squaresOnGrid > 0 && squaresOnGrid <= 100) {
+        createGrid(squaresOnGrid);
     }else {
         alert('Enter a number between 1 to 100');
     }
 }
 
 window.onload = createGrid;
-createGrid(16);
+// createGrid(16);
 
-document.getElementById('prompt-btn').addEventListener('click', gridResize)
+const btn = document.querySelector('#prompt-btn')
+btn.addEventListener('click',gridResize)
