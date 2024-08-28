@@ -1,5 +1,4 @@
-function randomColor() {
-    
+function randomColor() {    
     return{
         r: Math.floor(Math.random() * 256),
         g: Math.floor(Math.random() * 256),
