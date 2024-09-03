@@ -23,7 +23,13 @@ function createGrid(squaresOnGrid) {
 
     container.innerHTML= '';
 
-    const squareSize = 960 / squaresOnGrid;
+    const containerSize = 500;
+    const squareSize = containerSize/squaresOnGrid
+
+    container.style.width = `${containerSize}px`;   
+    container.style.height = `${containerSize}px`; 
+    container.style.margin = '0 auto';       
+    container.style.overflow = 'hidden';      
 
     container.style.gridTemplateColumns =`repeat(${squaresOnGrid}, ${squareSize}px)`;
     container.style.gridTemplateRows = `repeat(${squaresOnGrid}, ${squareSize}px)`
@@ -65,8 +71,7 @@ function gridResize () {
     }
 }
 
-window.onload = createGrid;
-createGrid(16);
+window.onload = () => createGrid(16);
 
 const btn = document.querySelector('#prompt-btn')
 btn.addEventListener('click',gridResize)
